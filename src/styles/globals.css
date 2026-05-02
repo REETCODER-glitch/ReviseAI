@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #6C4EFF;
+  --brand-dark: #4A2FCC;
+  --accent: #FF6B35;
+  --bg: #F8F7FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #F8F7FF;
+  color: #1A1033;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C4B8FF; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #6C4EFF; }
+
+/* Flashcard 3D flip */
+.perspective { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+.transition-transform-600 { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Prose in summary */
+.prose-revise p { margin-bottom: 0.75rem; line-height: 1.7; }
+.prose-revise ul { list-style: none; padding: 0; }
+.prose-revise ul li { padding: 6px 0 6px 1.5rem; position: relative; }
+.prose-revise ul li::before { content: "✦"; position: absolute; left: 0; color: #6C4EFF; font-size: 0.75rem; top: 8px; }
+.prose-revise strong { color: #1A1033; font-weight: 600; }
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #EDE9FF 25%, #D5CCFF 50%, #EDE9FF 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Note editor */
+.note-editor {
+  outline: none;
+  min-height: 300px;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+/* Score ring animation */
+@keyframes ring {
+  0% { stroke-dashoffset: 283; }
+}
+.score-ring { animation: ring 1s ease forwards; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6C4EFF, #FF6B35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(108, 78, 255, 0.15);
+}
+
+/* Premium glow */
+.premium-glow {
+  box-shadow: 0 0 0 1px #6C4EFF, 0 8px 32px rgba(108, 78, 255, 0.2);
+}
+
+/* Drag and drop zone */
+.dropzone-active {
+  border-color: #6C4EFF !important;
+  background-color: #EDE9FF !important;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .mobile-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
